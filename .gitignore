@@ -1,0 +1,7 @@
+log/*.log
+public/photos
+tmp/**/*
+.DS_Store
+doc/api
+doc/app
+db/dev_data
