@@ -1,0 +1,13 @@
+development:
+  adapter: mysql
+  database: ihponrails_development
+  username: root
+  password:
+  socket: /var/run/mysqld/mysqld.sock
+
+test:
+  adapter: mysql
+  database: ihponrails_test
+  username: root
+  password:
+  socket: /var/run/mysqld/mysqld.sock

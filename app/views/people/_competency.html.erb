@@ -1,0 +1,6 @@
+<% for competency in Competency.find(:all) %>
+<div>
+  <%= check_box_tag "person[competency_ids][]", competency.id, @person.competencies.include?(competency) %>
+  <%= competency.name %>
+</div>
+<% end %>

@@ -1,0 +1,7 @@
+<% form_tag ({:action => 'index', :browse_by => 'fellowship'}, :method => 'get') do |f| -%>
+<p><%= select_tag('year', options_for_select(Fellowship::YEARS, params[:year].to_i)) %>
+  <%= select_tag('program', options_for_select(Program::ABBRS, params[:program].to_i)) %>
+  <%= select_tag('country', options_for_select(Fellowship::COUNTRIES, params[:country])) %>
+  <%# country_select(:country, priority_countries = ['Ethiopia', 'India', 'Pakistan', 'Phillipines', 'Nigeria']) %>
+  <%= submit_tag 'filter' %> or <%= link_to 'clear', :browse_by => 'fellowship' %></p>
+<% end -%>

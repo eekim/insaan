@@ -1,0 +1,14 @@
+<tr class="<%= cycle('odd', 'even') -%>">
+  <td>
+    <%= link_to(region.name, region_url(region)) %>
+  </td>
+  <td>
+    <%= region.total_female_leaders %>
+  </td>
+  <td>
+    <%= region.total_male_leaders %>
+  </td>
+  <td>
+    <%= region.total_leaders %>
+  </td>
+</tr>

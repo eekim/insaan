@@ -1,0 +1,12 @@
+<div class="im_address">
+  <% new_or_existing = im_address.new_record? ? 'new' : 'existing' %>
+  <% prefix = "person[#{new_or_existing}_im_address_attributes][]" %>
+
+  <% fields_for prefix, im_address do |im_form| -%>
+  <p>
+    Type: <%= im_form.select :im_type, ImAddress::TYPES %>
+    Address/Username: <%= im_form.text_field :im_address %>
+    <%= link_to_function "remove" , "$(this).up('.im_address').remove()" %>
+  </p>
+  <% end -%>
+</div>

@@ -1,0 +1,92 @@
+<div class="module" style="width:651px;">
+  <h3 class="title">Basic Info</h3>
+  <div id="view_stuff" style="padding: 0 5px;">
+    <table width="100%" cellspacing="0" cellpadding="0">
+      <tr>
+        <td valign="top" style="width:50%; padding-right: 5px;">
+
+          <table class="standard" cellspacing="0" cellpadding="0">
+	    
+	    <tr>
+	      <td valign="top" class="label" width="25%">Email:</td>
+	      <td valign="bottom" class="ent_details"><%=h @person.primary_email_cache.blank? ? '' : @person.primary_email_cache %></td>
+	    </tr>
+
+	    <tr>
+	      <td colspan="2"><div style="height:5px;padding:0;"></div></td>
+	    </tr>
+
+	    <tr>
+	      <td valign="top" class="label" width="25%">
+		Address:
+	      </td>
+	      <td valign="bottom" class="ent_details">
+		<% if @person.addresses.empty? %>
+		  n/a
+		<% else %>
+		  <%= format_address(@person) %>
+		<% end %>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td colspan="2"><div style="height:5px;padding:0;"></div></td>
+	    </tr>
+	    <tr>
+	      <td valign="top" class="label" width="25%">
+		Phone:
+	      </td>
+	      <td valign="bottom" class="ent_details">
+		<%= @person.primary_phone_cache.blank? ? 'n/a' : h(@person.primary_phone_cache) %>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td colspan="2"><div style="height:5px;padding:0;"></div></td>
+	    </tr>
+	  </table>
+	</td>				  
+	<td valign="top" style="width:50%; padding-left: 5px;">
+	  <table class="standard">
+	    <tr>
+	      <td valign="top" class="label" width="25%">Birth / Age:</td>
+	      <td valign="bottom" class="ent_details">
+		<% if !@person.bday.blank? %>
+  		  <%= @person.bday.to_s(:long) + ' (' + @person.age.to_s + ')' %>
+		<% else %>
+		  n/a
+		<% end %>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td colspan="2"><div style="height:5px;padding:0;"></div></td>
+	    </tr>
+	    <tr>
+	      <td valign="top" class="label" width="25%">Current Job:</td>
+	      <td valign="bottom" class="ent_details">
+		<% if @person.current_job %>
+  		  <%=h @person.job_title %><br />
+		  <%= link_to(@person.company_name, organization_path(@person.current_job.organization)) %>
+		<% end %>
+	      </td>
+
+	    </tr>
+	    <tr>
+	      <td colspan="2"><div style="height:5px;padding:0;"></div></td>
+	    </tr>
+	    <tr>
+	      <td valign="top" class="label" width="25%">Fellowship(s):</td>
+	      <td valign="bottom" class="ent_details">
+		<% @person.fellowships.each do |f| %>
+		<%= link_to (f.country || "?")+" - "+(f.year || "?")+" - "+(f.program.abbr || "?"), :controller => 'people', :browse_by => 'fellowship', :program => (f.program_id || ""), :year => (f.year || "") , :country => (f.country || "") %><br />
+		<% end %>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td colspan="2"><div style="height:5px;padding:0;"></div></td>
+	    </tr>          
+	  </table>
+        </td>
+      </tr>
+    </table>
+    <div class="clearfloats"></div>
+  </div><!-- view_stuff -->
+</div><!-- module end -->

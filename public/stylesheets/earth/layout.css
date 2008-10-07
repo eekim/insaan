@@ -1,0 +1,120 @@
+/* Layout Stylesheet */
+
+body
+{
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  background: url(/images/earth/bg.jpg) repeat-x;
+  }
+
+#header
+{
+  margin: 0 auto 13px;
+  width: 980px;
+  height: 101px;
+   line-height: 16px;
+  }
+
+#headerpad
+{
+        position: relative;
+        width: 980px;
+        height: 101px;
+        text-align: left;
+        }
+
+#header #login {
+        position: absolute;
+        width: 210px;
+        right: 0px;
+        top: 8px;
+        text-align: right;
+        }
+
+#header #multilingual {
+        position: absolute;
+        width: 180px;
+        right: 0px;
+        top: 75px;
+        text-align: center;
+        }
+
+#header #search {
+        position: absolute;
+        top: 15px;
+        left: 210px;
+        height: 65px;
+        width: 560px;
+        text-align: center;
+        padding: 10px 0 0 0;
+        }
+
+#header #search #searchbar {
+        margin: 4px 10px 3px 0;
+        }
+
+#page {
+        clear: both;
+        margin: 0 auto 0;
+        width: 980px;
+        text-align: left;
+        }
+
+div.main {
+        float: left;
+        margin: 0;
+        padding: 0 0 5px 0;
+        width: 845px;
+        max-width: 845px;
+        overflow: hidden;
+        }
+
+#main_section_pad {
+        width: 845px;
+        padding: 0;
+        margin: 0 0 10px 0;
+        min-height: 425px;
+        height:auto;
+        }
+
+#sidecol {
+        float: left;
+        width: 135px;
+        margin: 0;
+        padding: 0 0 11px 0;
+        line-height: 16px;
+        }
+
+.sidebar {
+        margin: 0;
+        width: 125px;
+        font-size: 11px;
+        }
+
+.center_column {
+        float: left;
+        padding: 0 0 6px 0;
+        width: 655px;
+        }
+
+div.right_bar {
+        float: right;
+        width: 180px;
+        min-height: 425px;
+        height: auto;
+        margin: 0;
+        padding: 0 0 6px 0;
+        }
+
+#footer {
+        clear: both;
+        text-align: center;
+        margin: 0;
+        padding: 15px 0px 15px 0px;
+        font-size: 12px;
+        line-height: 16px;
+        color: #666;
+        width: 980px;
+        border-top: 1px solid #ccc;
+        }

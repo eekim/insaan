@@ -1,0 +1,19 @@
+<% if logged_in? %>
+<div id="login">
+  <span class="dark">
+    <strong>Welcome, <%=h current_user.login %></strong>
+  </span> &middot;
+  <%= link_to 'Sign Out', logout_path %><br />
+  <div>
+    <%= link_to 'My Profile', show_user_path(current_user.login) %>
+    <!-- &middot; <a href="#">Inbox (0)</a> -->
+  </div>
+</div>
+<% else %>
+<div id="login">
+  <div>
+    <%= link_to 'Sign In', login_path %> &middot;
+    <%= link_to 'Join',signup_path %>
+  </div>
+</div>
+<% end %>

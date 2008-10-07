@@ -1,0 +1,68 @@
+<%= error_messages_for :person %>
+
+<% form_for @person do |f| -%>
+  <div class="searchpane">
+    <h3>Basic Info</h3>
+    <h4>Name</h4>
+    <dl>
+      <dt><%= f.label :first_name, "First" %></dt>
+      <dd><%= f.text_field :first_name %></dd>
+      <dt><%= f.label :middle_name, "Middle" %></dt>
+      <dd><%= f.text_field :middle_name %></dd>
+      <dt><%= f.label :last_name, "Last" %></dt>
+      <dd><%= f.text_field :last_name %></dd>
+    </dl>
+    
+    <h4>Date of Birth</h4>
+    <p><%= f.date_select :bday, :start_year => 1920, :end_year => 18.years.ago.year, :default => {:year => 1920, :day => 1, :month => 1}, :include_blank => true %></p>
+    
+    <h4>Gender</h4>
+    <p><%= f.select :gender, [['Female','F'], ['Male','M']], { :include_blank => "select gender" } %></p>
+
+    <h4>Country / Region</h4>
+    
+    <p>
+      <select id="person_region_id" name="person[region_id]">
+	<option></option>
+	<%= option_groups_from_collection_for_select(@countries, :regions, :name, :id, :name, @person.region_id) %>
+      </select>
+    </p>
+  </div>
+  <div class="searchpane">
+    <h3>Core Competencies <span class="small"> (no more than 3)</span></h3>
+    <div id="competencies">
+      <%= render :partial => 'competency', :local => @person %>
+    </div> 
+  </div>
+  <div class="searchpane">
+    <h3>Contact Info</h3>
+    <!-- email --> 
+    <h4>Email <span><%= add_email_address_link "[Add]" %></span></h4>
+    <div id="email_addresses">
+      <%= render :partial => 'email_address', :collection => @person.email_addresses %>
+    </div>
+    <!-- phone -->
+    <h4>Phone <span><%= add_phone_number_link "[Add]" %></span></h4>
+    <div id="phone_numbers">
+      <%= render :partial => 'phone_number', :collection => @person.phone_numbers %>
+    </div>
+    <!-- address -->
+    <h4>Address <span><%= add_address_link "[Add]" %></span></h4>
+    <div id="addresses">
+      <%= render :partial => 'address', :collection => @person.addresses %>
+    </div>
+    <!-- website -->
+    <h4>Website <span><%= add_website_link "[Add]" %></span></h4>
+    <div id="websites">
+      <%= render :partial => 'website', :collection => @person.websites %>
+    </div>
+    <!-- im addresses -->
+    <h4>Instant Messaging <span><%= add_im_address_link "[Add]" %></span></h4>
+    <div id="im_addresses">
+      <%= render :partial => 'im_address', :collection => @person.im_addresses %>
+    </div>
+
+    <h4>Save</h4>
+    <p><%= f.submit %></p>
+  </div>
+<% end -%>

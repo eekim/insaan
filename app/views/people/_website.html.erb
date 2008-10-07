@@ -1,0 +1,13 @@
+<div class="website">
+  <% new_or_existing = website.new_record? ? 'new' : 'existing' %>
+  <% prefix = "person[#{new_or_existing}_website_attributes][]" %>
+
+  <% fields_for prefix, website do |website_form| -%>
+  <p>
+    Title: <%= website_form.text_field :site_title %>
+    Address/URL: <%= website_form.text_field :site_url %>
+    <%= link_to_function "remove" , "$(this).up('.website').remove()" %>
+  </p>
+  <% end -%>
+</div>
+<div class="linerule"></div>

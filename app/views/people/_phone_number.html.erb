@@ -1,0 +1,13 @@
+<div class="phone_number">
+  <% new_or_existing = phone_number.new_record? ? 'new' : 'existing' %>
+  <% prefix = "person[#{new_or_existing}_phone_number_attributes][]" %>
+
+  <% fields_for prefix, phone_number do |phone_form| -%>
+  <p>
+    Phone Type: <%= phone_form.select :phone_number_type, PhoneNumber::TYPES %>
+    Phone Number: <%= phone_form.text_field :phone_number %>
+    <%= link_to_function "remove" , "$(this).up('.phone_number').remove()" %>
+  </p>
+  <% end -%>
+</div>
+<div class="linerule"></div>

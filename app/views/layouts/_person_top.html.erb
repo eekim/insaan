@@ -1,0 +1,27 @@
+<% content_for :sectionhead do %>
+<div style="float: left;margin: 0 10px 5px 0;">
+  <%= @person.avatar ? (image_tag(@person.avatar.public_filename(:medium))) : (image_tag('default-avatar-small.jpg')) %>
+</div>
+<div class="timestamp">
+  Created: <%= @person.created_at.to_date.to_s(:long) %><br />
+  Updated: <%= @person.updated_at.to_date.to_s(:long) %><br />
+  <!-- Status: <%= @person.active? ? 'Active' : 'Inactive' %> -->
+</div><!-- timestamp end -->
+
+<h2 style="padding-top: 0;"><span id="entname"><%= @person.full_name %></span></h2>
+<%# @person.user ? @person.user.login : 'this person does not have a login' %><br />
+
+<span class="small" style="text-transform:capitalize;" id="pl"></span>
+<div class="clearfloats"></div>
+<% end %>
+
+<% content_for :tabnav do %>
+<ul class="tabnav">
+  <li <%= "class=\"tabselected\"" if @section == "main" %>><%= link_to 'Main', person_path(@person) %></a></li>
+  <li <%= "class=\"tabselected\"" if @section == "photos" %>><%= link_to 'Photos', person_photos_path(@person) %></a></li>
+  <li <%= "class=\"tabselected\"" if @section == "documents" %>><%= link_to 'Documents', person_documents_path(@person) %></a></li>
+  <% if logged_in? && (current_user.has_role?('administrator') || current_user.has_role?('editor')) %>
+    <li <%= "class=\"tabselected\"" if @section == "edit" %>><%= link_to 'Edit', edit_person_path(@person) %></a></li>
+  <% end %>
+</ul>
+<% end %>

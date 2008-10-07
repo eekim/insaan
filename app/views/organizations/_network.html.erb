@@ -1,0 +1,20 @@
+<div class="module" style="width:651px;">
+  <h3 class="title">Network&nbsp;</span></h3>
+  <div id="view_stuff" style="padding: 0 5px;">
+    <table width="100%" cellspacing="0" cellpadding="0">
+      <tr>
+        <td valign="top" style="padding-right: 5px;">Connected with <%= pluralize @org.employees.size, 'person' %></td>
+      </tr>
+      <tr>
+ 	<td valign="top" style="padding-left: 5px;">
+	  <ul>
+	    <% @org.jobs.each do |j| %>
+	      <li><%= link_to(j.person.name, person_url(j.person_id)) %>, <%=h j.title %></li>
+	    <% end %>
+	  </ul>
+	</td>
+      </tr>
+    </table>
+    <div class="clearfloats"></div>
+  </div><!-- view_stuff -->
+</div><!-- module end -->

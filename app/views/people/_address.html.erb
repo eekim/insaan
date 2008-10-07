@@ -1,0 +1,17 @@
+<div class="address">
+  <% new_or_existing = address.new_record? ? 'new' : 'existing' %>
+  <% prefix = "person[#{new_or_existing}_address_attributes][]" %>
+
+  <% fields_for prefix, address do |address_form| -%>
+  <dl>
+    <dt style="width: 120px;"><%= address_form.label :address_type %></dt> <dd><%= address_form.select :address_type, Address::TYPES %></dd>
+    <dt><%= address_form.label :street, 'Street / Directions' %></dt> <dd><%= address_form.text_area :street, {:style => 'width: 250px; height: 75px;'} %></dd>
+    <dt><%= address_form.label :city, 'City, Town or Village' %></dt> <dd><%= address_form.text_field :city %></dd>
+    <dt><%= address_form.label :state, 'State / Region' %></dt> <dd><%= address_form.text_field :state %></dd>
+    <dt><%= address_form.label :postal_code %></dt> <dd><%= address_form.text_field :postal_code %></dd>
+    <dt><%= address_form.label :country_name, 'Country' %></dt> <dd><%= address_form.country_select(:country_name, priority_countries = ['Ethiopia', 'India', 'Pakistan', 'Phillipines', 'Nigeria'], :prompt => true) %></dd> 
+    <dt><%= link_to_function "remove" , "$(this).up('.address').remove()" %></dt><dd>&nbsp;</dd>
+  </dl>
+  <% end -%>
+</div>
+<div class="linerule"></div>

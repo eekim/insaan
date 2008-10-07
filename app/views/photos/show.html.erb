@@ -1,0 +1,5 @@
+<%= render :partial => 'layouts/person_top', :local => @person %>
+
+<%= image_tag(@photo.public_filename) %>
+
+<p><%= link_to 'back to photos', person_photos_path(@person) %></p>

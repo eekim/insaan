@@ -1,0 +1,33 @@
+<html>
+
+  <head>
+    <title><%= controller.action_name %></title>
+    <style type="text/css">
+
+      body {
+      background: #ccf;
+      text-align: center;
+      font: 12pt arial;
+      }
+      div#content {
+      border: 1px solid #000;
+      width: 700px;
+      text-align: left;
+      margin: 0 auto;
+      padding: 0 20px;
+      background: #fff;
+      }
+      tr.odd {
+      background: #ffc;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <div id="content">
+      <%= @content_for_layout %>
+    </div>
+  </body>
+
+</html>

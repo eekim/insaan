@@ -1,0 +1,13 @@
+<%= render :partial => 'layouts/person_top', :local => @person %>
+
+<h2>Upload a new photo</h2>
+<%= error_messages_for :photo %>
+<% form_for(:photo, :url => person_photos_path(@person), :html => { :multipart => true }) do |f| %>
+  <p>Select a photo to upload</p>
+  <p>Photo:<br /><%= f.file_field 'uploaded_data' %></p>
+  <p>
+    <%= submit_tag 'Upload Photo' %> or
+    <%= link_to 'cancel', person_photos_path(@person) %>
+  </p>
+<% end %>
+

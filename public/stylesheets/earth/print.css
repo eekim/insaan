@@ -1,0 +1,110 @@
+/* Layout Stylesheet */ 
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0px;
+	padding: 0px;
+	font-size: 13px;
+	color: #000;
+	}
+
+#page {
+	width: 100%;
+	}
+
+#header {
+	background: #fff;
+	position: relative;
+	width: 100%;
+	margin: 0 0 10px 0;
+	}
+	
+#header #logo {
+	margin: 0;
+	}
+
+#mainWrapper {
+	margin: 0px;
+	padding: 0; 
+	width: 100%;
+	clear: both;
+	}
+
+div.main {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	}
+
+div.main-pad {
+	margin: 0;
+	padding: 0;
+	}
+
+#footer {
+	background: #fff;
+	padding: 20px 0px 20px 0px;
+	font-size: 12px;
+	color: #666;
+	width: 900px;
+	clear: both;
+	}
+
+img, img a {
+	padding: 0;
+	margin: 0;
+	border: none;
+	vertical-align: bottom;
+	}
+
+p {
+	line-height: 130%;
+	margin: 0 0 10px 0;
+	padding: 0;
+	}
+
+h2 {
+	font-size: 16px;
+	font-weight: bold;
+	margin: 5px 0 5px 0;
+	padding: 0;
+	}
+
+h3 {
+	font-size: 18px;
+	font-weight: bold;	
+	margin: 5px 0 5px 0;
+	padding: 0;
+	}
+
+h3 {
+	font-size: 13px;
+	font-weight: bold;
+	margin: 5px 0 5px 0;
+	padding: 0;
+	}
+
+a,
+a:link,
+a:visited,
+a:hover {
+	font-size: 13px;
+	color: #000;
+	text-decoration: none;
+	}
+
+
+/* Elements to Hide */
+
+.history_panel,
+.irc,
+.right_bar,
+#greenbar,
+#header #login,
+#header #search,
+#prefooter,
+#sfWebDebugBar,
+#sidecol {
+	display: none;
+	visibility: hidden;
+	}

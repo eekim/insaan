@@ -1,0 +1,30 @@
+<%= render :partial => 'layouts/person_top', :local => @person %>
+
+<div id="gallery_container">
+<div id="photo_section">
+  <div class="clearfloats">&nbsp;</div>
+  <div class="module" style="width: 651px;">
+    <h3 class="title"><span class="static">Photos</span></h3>
+    <div class="module_content" style="padding: 5px;">
+      <div <%# somthing here to set errors %> style="display:none;" class="form_error" id="error_for_photo"><%= error_messages_for :photo %></div>
+      <% form_for(:photo, :url => person_photos_path(@person), :html => { :multipart => true }) do |f| %>
+        <strong>Browse for an Image</strong> <small>(gif, jpg, or png only; 3MB max)</small>:<br />
+	<%= f.file_field 'uploaded_data' %>
+	<%= submit_tag 'Upload Photo', {:class => 'small'} %>
+      <% end %>
+      <div class="linerule2"></div>
+      <br />
+      <% for photo in @person.photos %>
+        <div class="gallery_tn">
+	  <%= link_to 'Set Default', person_photo_path(@person, photo), :method => :put %>
+	  <div><%= link_to image_tag(photo.public_filename(:large)), person_photo_path(@person, photo) %></div>
+	  <%= link_to 'Delete', person_photo_path(@person, photo), :method => 'delete' %>
+        </div>
+      <% end %>
+      <div class="clearfloats"></div>
+    </div><!-- module_content end -->
+  </div><!-- module end -->
+
+</div><!-- photo_section end -->
+
+</div>

@@ -1,0 +1,20 @@
+<tr class="<%= cycle('odd', 'even') -%>">
+  <td>
+    <div class="avatarbox">
+      
+    </div>
+  </td>
+  <td>
+    <%= link_to(organization.name, organization_url(organization.id)) %>
+  </td>
+  <td>
+    <%=h organization.description %>
+  </td>
+  <td>
+    <%=h organization.url %>
+  </td>
+  <td>
+    <%= organization.employees.size %>
+  </td>
+
+</tr>

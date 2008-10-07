@@ -1,0 +1,38 @@
+<% content_for :sectionhead do %>
+
+  <div class="timestamp">
+    Created: <%= @org.created_at.to_date.to_s(:long) %><br />
+    Updated: <%= @org.updated_at.to_date.to_s(:long) %>
+  </div><!-- timestamp end -->
+
+  <h2 style="padding-top: 0;"><span id="entname"><%= @org.name %></span></h2>
+  <div class="clearfloats"></div>
+<% end %>
+<% content_for :tabnav do %>
+  <ul class="tabnav">
+    <li <%= "class=\"tabselected\"" %>><%= link_to 'Main', organization_path(@org) %></a></li>
+  </ul>
+<% end %>
+<% content_for :rightbar do %>
+<div class="right_bar">
+  <div class="module_side" style="padding-top:5px;">
+    <h3 class="title">Actions</h3> 
+    <div class="right_bar_section">
+      <ul class="right_bar_list">	
+	<li><img style="padding:0px 5px 0px 0px" src="/images/eye.jpg" alt="Eye" /><a href="#">Add to your watchlist</a></li>
+	<li><img style="padding:0px 5px 0px 0px" src="/images/network.jpg" alt="Network" /><a href="#">Add to your network</a></li>
+      </ul>
+    </div><!-- right_bar_section end -->
+  </div><!-- module_side end -->
+</div> <!-- right_bar end -->
+<% end %>
+
+<div class="center_column">
+  <div id="stuff_section"><!-- Edit Info Section -->
+    <%= render :partial => 'main', :local => @org %>
+
+    <%= render :partial => 'network', :local => @org %>
+
+    <%= render :partial => 'about', :local => @org %>
+  </div><!-- stuff_section end -->
+</div><!-- center_column end -->

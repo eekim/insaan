@@ -1,0 +1,14 @@
+<div class="box">
+  <h2>All users</h2>
+  <div class="boxContent">
+    <table id="users">
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Enabled?</th>
+        <th>Roles</th>
+      </tr>
+      <%= render :partial => 'user', :collection => @users %>
+    </table>
+  </div>
+</div>

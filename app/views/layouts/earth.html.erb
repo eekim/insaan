@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Insaan - Family Planning and Reproductive Health Network</title>
+    <%= stylesheet_link_tag 'earth/main' %>
+    <%= stylesheet_link_tag 'earth/layout' %>
+    <%= javascript_include_tag :defaults %>
+    <%= yield :head %>
+  </head>
+  <body>
+    <div id="header">
+      <div id="headerpad">
+        <div id="logo">
+          <!-- add to css -->
+          <%= link_to image_tag('earth/map.png', :alt => 'Insaan Home'), root_path %>
+        </div>
+        <div id="search">
+          <div id="searchbar">
+            <% form_tag ({:controller => 'people', :browse_by => 'search'}, :method => 'get') do -%>
+            <%= text_field_tag 'name_query', params[:name_query], :style => 'width: 300px; border: 1px solid #bbb;' %>
+            <%= submit_tag 'search (names only)' %>
+            <% end -%>
+          </div><!-- searchbar end -->
+          <!-- 
+	  <div class="crit">
+            <ul>
+              <li class="searchpanel"><a title="Search All" href="#">All</a></li>
+              &nbsp; | &nbsp;
+              <li class="searchpanel"><a title="Search People" href="#">People</a></li>
+              &nbsp; | &nbsp;
+              <li class="searchpanel"><a title="Search Organizations" href="#">Organizations</a></li>
+              &nbsp; | &nbsp;
+              <li class="searchpanel"><a title="Search Events" href="#">Events</a></li>
+              &nbsp; | &nbsp;
+              <li class="searchpanel"><a title="Search Areas of Expertise" href="#">Areas of Expertise</a></li>
+              &nbsp; | &nbsp;
+              <li class="searchpanel"><a title="Search Resources" href="#">Stories</a></li>
+          </div>
+	  --><!-- crit end -->
+          <!-- flash begin -->
+          <% if flash[:notice] -%>
+            <p class="flash-notice"><%= flash[:notice] %></p>
+          <% end -%>
+          <% if flash[:error] -%>
+            <p class="flash-error"><%= flash[:error] %></p>
+          <% end -%>
+          <!-- flash end -->
+        </div><!-- search end -->
+
+        <!-- user login menu begin -->
+        <%= render :partial => 'layouts/user_menu' %>
+        <!-- user login menu end -->
+
+      </div><!-- headerpad end -->
+    </div><!-- header end -->
+
+    <div id="page">
+      <div id="sidecol">
+	<div class="sidebar">
+          <%= render :partial => 'layouts/left_menu' %>
+	</div> 
+      </div><!-- sidecol end -->
+      <div class="main">
+	<div class="main_section_header">
+	  <%= yield :sectionhead %>
+	</div>
+        <div id="main_section_pad">
+	  <%= yield :tabnav %>
+	  <%= yield :rightbar %>
+          <%= yield %>
+        </div><!-- main_section_pad end -->
+      </div><!-- main end -->
+
+      <div class="clear"></div>
+      <div id="footer">
+        Private Information. Do Not Distribute. <br />
+        Built by <a href="http://giip.org/">GIIP Enterprises</a>
+      </div><!-- footer end -->
+    </div><!-- page end -->
+  </body>
+</html>

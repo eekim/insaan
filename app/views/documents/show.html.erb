@@ -1,0 +1,18 @@
+<%= render :partial => 'layouts/person_top', :local => @person %>
+
+<div id="gallery_container">
+<div id="file_section">
+  <div class="module" style="width: 651px;">
+    <h3 class="title"><span class="static"><%=h @document.title %></span> <span class="edit_link">&nbsp;<%= link_to image_tag('earth/download.png') + "&nbsp;Download", download_document_path(@document) %></span></h3>
+    
+    <div class="module_content" style="padding: 5px;">
+      <%=h @document.description %>
+    </div>
+
+    <div class="nothing">
+      no preview available
+    </div>
+
+  </div> <!-- module end -->
+</div> <!-- file section end -->
+</div>

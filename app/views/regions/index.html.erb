@@ -1,0 +1,11 @@
+<% content_for :sectionhead do %>
+  <h2 class="entname">Regions</h2>
+<% end %>
+<% content_for :tabnav do %>
+  <ul class="tabnav">
+    <li <%= "class=\"tabselected\"" %>><%= link_to 'by Country', '#' %></li>
+  </ul>
+<% end %>
+
+<%= render :partial => 'country', :collection => @countries %>
+

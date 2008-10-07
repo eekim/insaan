@@ -1,0 +1,15 @@
+<div class="module" style="width:651px;">
+  <h3 class="title">Events / Trainings</h3>
+  <div id="view_stuff" style="padding: 0 5px;">
+    <table width="100%" cellspacing="0" cellpadding="0">
+      <tr>
+	<% @person.activities.each do |a| %>
+        <td valign="top" style="padding-right: 5px;">
+	  <%=h a.title %> - <%=h a.institution %> - <%=h a.city %>, <%=h a.country %> (<%=h a.start_date.to_date.to_s(:long) %> - <%=h a.finish_date.to_date.to_s(:long) %>)
+        </td>
+	<% end %>
+      </tr>
+    </table>
+    <div class="clearfloats"></div>
+  </div><!-- view_stuff -->
+</div><!-- module end -->

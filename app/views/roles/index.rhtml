@@ -1,0 +1,11 @@
+<div class="box">
+  <h2>Roles for <%= @user.login %></h2>
+  <div class="boxContent">
+    <h3>Roles assigned:</h2>
+    <ul><%= render :partial => 'role', :collection => @user.roles %></ul>
+
+    <h3>Roles available:</h2>
+    <ul><%= render :partial => 'role', :collection => (@all_roles - @user.roles) %></ul>
+  </div>
+</div>
+

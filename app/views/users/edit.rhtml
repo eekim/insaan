@@ -1,0 +1,16 @@
+<div class="box">
+  <h2>Edit your account</h2>
+  <div class="boxContent">
+    <p><%= link_to 'Show my profile', user_path(@user) %></p>
+
+    <%= error_messages_for :user %>
+
+    <% form_for :user, :url => user_url(@user), :html => { :method => :put } do |f| -%>
+      <p>Email:<br /><%= f.text_field :email %></p>
+      <p>Password:<br /><%= f.password_field :password %></p>
+      <p>Password Confirmation:<br />
+        <%= f.password_field :password_confirmation %></p>
+       <%= submit_tag 'Save' %>
+    <% end -%>
+  </div>
+</div>

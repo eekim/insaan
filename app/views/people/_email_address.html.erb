@@ -1,0 +1,13 @@
+<div class="email_address">
+  <% new_or_existing = email_address.new_record? ? 'new' : 'existing' %>
+  <% prefix = "person[#{new_or_existing}_email_address_attributes][]" %>
+
+  <% fields_for prefix, email_address do |email_form| -%>
+  <p>
+    Email Type: <%= email_form.select :email_type, EmailAddress::TYPES %>
+    Email Address: <%= email_form.text_field :email_address %>
+    <%= link_to_function "remove" , "$(this).up('.email_address').remove()" %>
+  </p>
+  <% end -%>
+</div>
+<div class="linerule"></div>

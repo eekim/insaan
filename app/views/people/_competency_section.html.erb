@@ -1,0 +1,15 @@
+<div class="module" style="width:651px;">
+  <h3 class="title">Core Competencies</span></h3>
+<div id="view_stuff" style="padding: 0 5px;">
+  <table width="100%" cellspacing="0" cellpadding="0">
+    <tr>
+        <td valign="top" style="width:50%; padding-right: 5px;">
+	  <% @person.competencies.each do |c| %>
+	    <%=h c.name %> (<%= pluralize c.people.size, 'person' %>) &nbsp;
+	  <% end %>
+        </td>
+    </tr>
+  </table>
+  <div class="clearfloats"></div>
+</div><!-- view_stuff -->
+</div><!-- module end -->
