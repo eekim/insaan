@@ -19,14 +19,17 @@
     <h4>Gender</h4>
     <p><%= f.select :gender, [['Female','F'], ['Male','M']], { :include_blank => "select gender" } %></p>
 
-    <h4>Country / Region</h4>
-    
+    <h4>Country / Region</h4>  
     <p>
       <select id="person_region_id" name="person[region_id]">
 	<option></option>
 	<%= option_groups_from_collection_for_select(@countries, :regions, :name, :id, :name, @person.region_id) %>
       </select>
     </p>
+
+    <h4>Professional Affiliation</h4>
+    <p><%= f.select :affiliation_id, Affiliation.find(:all).collect{|a| [a.name, a.id]}, {:include_blank => true} %></p>
+
   </div>
   <div class="searchpane">
     <h3>Core Competencies <span class="small"> (no more than 3)</span></h3>
