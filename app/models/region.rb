@@ -21,9 +21,9 @@ class Region < ActiveRecord::Base
   has_many :people
 
   # define permalink
-  has_permalink :country_region_name
+  #has_permalink :country_region_name
   def to_param
-    permalink
+    "#{self.id}-#{title.to_safe_uri}"
   end
   
   def country_region_name
