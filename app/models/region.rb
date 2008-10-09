@@ -23,7 +23,7 @@ class Region < ActiveRecord::Base
   # define permalink
   #has_permalink :country_region_name
   def to_param
-    "#{self.id}-#{title.to_safe_uri}"
+    "#{self.id}-#{name.to_safe_uri}"
   end
   
   def country_region_name
