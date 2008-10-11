@@ -15,9 +15,9 @@ class Competency < ActiveRecord::Base
   
   has_and_belongs_to_many :people
 
-  has_permalink :name
-  def to_param
-    permalink
-  end
+#  has_permalink :name
+ # def to_param
+  #  permalink
+ # end
   
 end
