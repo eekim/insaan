@@ -3,7 +3,7 @@
 <div id="gallery_container">
 <div id="file_section">
   <div class="module" style="width: 651px;">
-    <h3 class="title"><span class="static">Documents</span> <span class="edit_link">&nbsp;<%= link_to image_tag('earth/upload.png') + "&nbsp;Upload a File", new_person_document_path(@person) %></span></h3>
+    <h3 class="title"><span class="static">Documents</span> <!-- <span class="edit_link">&nbsp;<%= link_to image_tag('earth/upload.png') + "&nbsp;Upload a File", new_person_document_path(@person) %>--></span></h3>
     <% if @person.documents.empty? %>
       <div class="nothing">No Files to display</div>
     <% else %>

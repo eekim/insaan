@@ -6,13 +6,13 @@
   <div class="module" style="width: 651px;">
     <h3 class="title"><span class="static">Photos</span></h3>
     <div class="module_content" style="padding: 5px;">
-      <div <%# somthing here to set errors %> style="display:none;" class="form_error" id="error_for_photo"><%= error_messages_for :photo %></div>
+      <!-- <div <%# somthing here to set errors %> style="display:none;" class="form_error" id="error_for_photo"><%= error_messages_for :photo %></div>
       <% form_for(:photo, :url => person_photos_path(@person), :html => { :multipart => true }) do |f| %>
         <strong>Browse for an Image</strong> <small>(gif, jpg, or png only; 3MB max)</small>:<br />
 	<%= f.file_field 'uploaded_data' %>
 	<%= submit_tag 'Upload Photo', {:class => 'small'} %>
       <% end %>
-      <div class="linerule2"></div>
+      <div class="linerule2"></div> -->
       <br />
       <% for photo in @person.photos %>
         <div class="gallery_tn">
