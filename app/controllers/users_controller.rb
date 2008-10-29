@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     if @user.save
       # not going to let logins happen automatically... will be approved first
       #self.current_user = @user
-      redirect_back_or_default(home_url)
+      redirect_back_or_default(people_url)
       flash[:notice] = "Thanks for signing up! Because this is a private system, all users must be verified by and administrator.  When your account is approved the you will be notified."
     else
       render :action => 'new'
