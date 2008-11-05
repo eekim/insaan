@@ -10,5 +10,9 @@
     <% end -%>
   <% end -%>
   </td>
-  <td>[<%= link_to 'edit permissions', user_roles_url(user) %>]</td>
+  <td><% user.roles.each do |r| %>
+      <%= r.name + " " %>
+  <% end %></td>
+  <td>[<%= link_to 'edit', edit_admin_user_url(user) %>]</td>
+  <td>[<%= link_to 'edit permissions', admin_user_roles_url(user) %>]</td>
 </tr>

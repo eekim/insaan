@@ -1,0 +1,32 @@
+<h3>Browse</h3>
+<%= link_to 'People', people_path %><br />
+<%= link_to 'Regions', regions_path %><br />
+<%= link_to 'Organizations', organizations_path %><br />
+<!-- Not ready yet
+<hr />
+<%= link_to 'Core Competencies', competencies_path %><br />
+<%= link_to 'Events / Trainings', events_path %><br />
+<%= link_to 'Fellowship Programs', '#' %><br /><br />
+-->
+
+<% if logged_in? && (current_user.has_role?('administrator') || current_user.has_role?('editor')) %>
+<h3>Edit</h3>
+<%= link_to 'Add a Person', new_person_path %><br />
+<!-- not ready yet
+<a href="#">Add an Organization</a><br />
+<a href="#">Add an Event</a><br /><br />
+-->
+<% end %>
+
+<% if logged_in? && current_user.has_role?('administrator')%>
+<h3>Admin</h3>
+<%= link_to 'Users / Privileges', admin_users_path %><br /><br />
+<% end %>
+
+<!-- not ready yet
+<h3>Help</h3>
+<a href="#">Give Feedback</a><br />
+<a href="#">FAQs</a><br />
+<a href="#">Tutorial</a><br/>
+<a href="#">General Help</a><br/><br/>
+-->

@@ -1,5 +1,13 @@
-class UsersController < ApplicationController
-  skip_before_filter :login_required, :only => [:new, :create]
+class Admin::UsersController < ApplicationController
+
+  before_filter :check_administrator_role,
+                :only => [:index, :destroy, :enable]
+  skip_before_filter :login_required,
+                     :only => [:new, :create]
+
+  def index
+    @users = User.find(:all)
+  end
 
   def show
     @user = User.find(params[:id])
@@ -28,17 +36,37 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
+    @user = User.find params[:id]
   end
 
   def update
     @user = User.find(current_user)
     if @user.update_attributes(params[:user])
       flash[:notice] = "User updated"
-      redirect_to root_path
+      redirect_to :action => 'show', :id => current_user
     else
       render :action => 'edit'
     end
+  end
+
+  def destroy # disables, does not delete
+    @user = User.find(params[:id])
+    if @user.update_attribute(:enabled, false)
+      flash[:notice] = "User disabled"
+    else
+      flash[:error] = "There was a problem disabling this user."
+    end
+    redirect_to :action => 'index'
+  end
+
+  def enable
+    @user = User.find(params[:id])
+    if @user.update_attribute(:enabled, true)
+      flash[:notice] = "User enabled"
+    else
+      flash[:error] = "There was a problem enabling this user."
+    end
+    redirect_to :action => 'index'
   end
 
 end

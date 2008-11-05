@@ -1,5 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
 
+  # admin namespace
+  map.namespace :admin do |a|
+    a.resources :users, :has_many => :roles, :member => { :enable => :put }
+    a.resources :roles, :has_many => :users
+  end
+
   # root path
   # TODO: create home page infrastructure (lovd by less?)
   map.root :controller => 'people'
@@ -24,13 +30,11 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :regions
   
   # people browser connections
-  map.browse '/people/browse/:browse_by',
-              :controller => 'people',
-              :action => 'index'
+  map.browse '/people/browse/:browse_by', :controller => 'people', :action => 'index'
   
-  # users /roles
-  map.resources :users, :has_many => :roles, :member => { :enable => :put }
-  map.resources :roles, :has_many => :users
+  # users
+  # TODO: split to Accounts/Profiles
+  map.resources :users
 
   map.show_user '/user/:login', :controller => 'users', :action => 'show_by_login'
 

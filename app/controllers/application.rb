@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # :secret => '00e6e55e26d7e90548c06a3e49d94902'
 
   # default layout?
-  layout 'earth'
+  # layout 'earth'
 
   # default requirement is to be logged in
   before_filter :login_required

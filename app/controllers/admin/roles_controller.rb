@@ -1,4 +1,4 @@
-class RolesController < ApplicationController
+class Admin::RolesController < ApplicationController
   before_filter :check_administrator_role
 
   def index
