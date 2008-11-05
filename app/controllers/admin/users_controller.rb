@@ -43,7 +43,7 @@ class Admin::UsersController < ApplicationController
     @user = User.find(current_user)
     if @user.update_attributes(params[:user])
       flash[:notice] = "User updated"
-      redirect_to admin_user_path
+      redirect_to admin_users_path
     else
       render :action => 'edit'
     end
