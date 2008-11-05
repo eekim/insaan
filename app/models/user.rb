@@ -34,14 +34,14 @@ class User < ActiveRecord::Base
 
   validates_confirmation_of :password,                   :if => :password_required?
 
-  validates_uniqueness_of   :login, :email, :case_sensitive => false
+  validates_uniqueness_of   :login, :case_sensitive => false # TODO: validate for unique email
 
   validates_length_of       :password, :within => 4..20, :if => :password_required?
   validates_length_of       :login,    :within => 3..64
   validates_length_of       :email,    :within => 5..128
 
   # relationships
-  belongs_to :person
+  # belongs_to :person
   has_and_belongs_to_many :roles
 
   # triggers
