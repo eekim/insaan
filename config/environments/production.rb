@@ -23,3 +23,8 @@ config.action_view.cache_template_loading            = true
 
 # Set GEM Path for Production Machine - Don't know if this works yet
 ENV['GEM_PATH'] = '/home/adothompson/gems:/usr/local/lib/ruby/gems/1.8'
+
+  # Exception Notifier
+  ExceptionNotifier.exception_recipients = %w(adam@giip.org)
+  ExceptionNotifier.sender_address = %("Insaan Error" <error@insaan.giip.org>)
+  ExceptionNotifier.email_prefix = "[Insaan Error] "
