@@ -3,12 +3,12 @@
     <%= link_to(region.name, region_url(region)) %>
   </td>
   <td>
-    <%= region.total_female_leaders %>
+    <%= region.total_female_leaders == 0 ? "#{region.total_female_leaders}" : "<strong>#{region.total_female_leaders}</strong>" %>
   </td>
   <td>
-    <%= region.total_male_leaders %>
+    <%= region.total_male_leaders == 0 ? "#{region.total_male_leaders}" : "<strong>#{region.total_male_leaders}</strong>" %>
   </td>
   <td>
-    <%= region.total_leaders %>
+    <%= region.total_leaders == 0 ? "#{region.total_leaders}" : "<strong>#{region.total_leaders}</strong>" %>
   </td>
 </tr>
