@@ -5,3 +5,5 @@ tmp/**/*
 doc/api
 doc/app
 db/dev_data
+db/database.yml
+db/schema.rb

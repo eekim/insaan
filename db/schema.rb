@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 43) do
+ActiveRecord::Schema.define(:version => 20081104214819) do
 
   create_table "addresses", :force => true do |t|
     t.integer "person_id",    :limit => 11
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(:version => 43) do
     t.string   "permalink"
   end
 
-  create_table "competencies_people", :force => true do |t|
+  create_table "competencies_people", :id => false, :force => true do |t|
     t.integer "competency_id", :limit => 11
     t.integer "person_id",     :limit => 11
   end

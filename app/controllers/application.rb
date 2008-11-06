@@ -2,11 +2,11 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
-  helper :all # include all helpers, all the time
-
   # exception notifier plugin
   include ExceptionNotifiable  
   
+  helper :all # include all helpers, all the time
+
   # restful auth plugin
   include AuthenticatedSystem
 
