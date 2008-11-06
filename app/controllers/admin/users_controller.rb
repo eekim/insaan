@@ -40,7 +40,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(current_user)
+    @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       flash[:notice] = "User updated"
       redirect_to admin_users_path
