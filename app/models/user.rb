@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
 
   validates_confirmation_of :password,                   :if => :password_required?
 
-  validates_uniqueness_of   :login, :case_sensitive => false # TODO: validate for unique email
+  validates_uniqueness_of   :login, :email, :case_sensitive => false
 
   validates_length_of       :password, :within => 4..20, :if => :password_required?
   validates_length_of       :login,    :within => 3..64
