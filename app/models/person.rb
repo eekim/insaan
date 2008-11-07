@@ -30,7 +30,7 @@ class Person < ActiveRecord::Base
   # remove this - after migrations
   #has_and_belongs_to_many :images
 
-   has_many :addresses, :dependent => :destroy, :order => "preferred desc"
+  has_many :addresses, :dependent => :destroy, :order => "preferred desc"
   has_many :email_addresses, :dependent => :destroy, :order => "preferred desc"
   has_many :phone_numbers, :dependent => :destroy, :order => "preferred desc"
   has_many :fellowships, :dependent => :destroy
@@ -110,7 +110,7 @@ class Person < ActiveRecord::Base
   def self.filter(filter, sort, page, items_per_page)
     paginate(:per_page => items_per_page,
              :page => page,
-             :include => [:fellowships, :user],
+             :include => [:fellowships],
              :conditions => filter,
              :order => sort
              )
