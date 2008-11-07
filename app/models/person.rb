@@ -30,8 +30,7 @@ class Person < ActiveRecord::Base
   # remove this - after migrations
   #has_and_belongs_to_many :images
 
-  has_one :user, :dependent => :destroy
-  has_many :addresses, :dependent => :destroy, :order => "preferred desc"
+   has_many :addresses, :dependent => :destroy, :order => "preferred desc"
   has_many :email_addresses, :dependent => :destroy, :order => "preferred desc"
   has_many :phone_numbers, :dependent => :destroy, :order => "preferred desc"
   has_many :fellowships, :dependent => :destroy

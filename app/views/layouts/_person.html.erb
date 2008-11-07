@@ -1,7 +1,7 @@
 <tr class="<%= cycle('odd', 'even') -%>">
   <td>
     <div class="avatarbox">
-      <% if person.photos_count != 0 %>
+      <% if person.avatar != nil %>
         <%= image_tag(person.avatar.public_filename('medium')) %>
       <% end %>
     </div>
