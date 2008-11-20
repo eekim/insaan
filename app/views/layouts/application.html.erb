@@ -16,8 +16,8 @@
         <div id="search">
           <div id="searchbar">
             <% form_tag ({:controller => 'people', :browse_by => 'search'}, :method => 'get') do -%>
-            <%= text_field_tag 'name_query', params[:name_query], :style => 'width: 300px; border: 1px solid #bbb;' %>
-            <%= submit_tag 'search (names only)' %>
+              <%= text_field_tag 'name_query', params[:name_query], :style => 'width: 300px; border: 1px solid #bbb;' %>
+              <%= submit_tag 'search (names only)' %>
             <% end -%>
           </div><!-- searchbar end -->
           <!-- flash begin -->
@@ -60,5 +60,17 @@
         Built by <a href="http://giip.org/">GIIP Enterprises</a>
       </div><!-- footer end -->
     </div><!-- page end -->
+    <%- if "production" == RAILS_ENV -%>
+      <script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+      </script>
+      <script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-675861-11");
+	pageTracker._trackPageview();
+	} catch(err) {}
+      </script>
+    <%- end -%>
   </body>
 </html>
