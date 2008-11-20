@@ -6,7 +6,7 @@ doc/api
 doc/app
 db/dev_data
 config/database.yml
-db/schema.rb
+
 public/javascripts/all.js
 public/stylesheets/all.css
 documents/*
