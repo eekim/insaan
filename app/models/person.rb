@@ -26,12 +26,12 @@
 #
 
 class Person < ActiveRecord::Base
-  has_many :addresses, :dependent => :destroy, :order => "preferred desc"
-  has_many :email_addresses, :dependent => :destroy, :order => "preferred desc"
-  has_many :phone_numbers, :dependent => :destroy, :order => "preferred desc"
+  has_many :addresses, :dependent => :destroy, :order => "preferred DESC"
+  has_many :email_addresses, :dependent => :destroy, :order => "preferred DESC"
+  has_many :phone_numbers, :dependent => :destroy, :order => "preferred DESC"
   has_many :fellowships, :dependent => :destroy
-  has_many :websites, :dependent => :destroy, :order => "preferred desc"
-  has_many :im_addresses, :dependent => :destroy, :order => "preferred desc"
+  has_many :websites, :dependent => :destroy, :order => "preferred DESC"
+  has_many :im_addresses, :dependent => :destroy, :order => "preferred DESC"
   has_many :profile_notes, :dependent => :destroy
   
   # countries / regions
@@ -39,7 +39,7 @@ class Person < ActiveRecord::Base
   belongs_to :region, :counter_cache => true
   
   # photos and documents
-  has_many :photos, :dependent => :destroy, :order => "preferred desc" # TODO: polymorph photo uploads for orgs, groups, etc
+  has_many :photos, :dependent => :destroy, :order => "preferred DESC" # TODO: polymorph photo uploads for orgs, groups, etc
   has_many :documents, :as => :documentable, :dependent => :destroy, :order => "updated_at DESC"
   
   # events / trainings

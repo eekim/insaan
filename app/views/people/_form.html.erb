@@ -5,12 +5,16 @@
     <h3>Basic Info</h3>
     <h4>Name</h4>
     <dl>
+      <dt><%= f.label :name_prefix, "Prefix" %></dt>
+      <dd><%= f.select :name_prefix, [['Ms.'], ['Mr.'], ['Mrs.'],['Dr.']], { :include_blank => true } %></dd>
       <dt><%= f.label :first_name, "First" %></dt>
       <dd><%= f.text_field :first_name %></dd>
       <dt><%= f.label :middle_name, "Middle" %></dt>
       <dd><%= f.text_field :middle_name %></dd>
       <dt><%= f.label :last_name, "Last" %></dt>
       <dd><%= f.text_field :last_name %></dd>
+      <dt><%= f.label :name_postfix, "Suffix" %></dt>
+      <dd><%= f.text_field :name_suffix %></dd>
     </dl>
     
     <h4>Date of Birth</h4>
