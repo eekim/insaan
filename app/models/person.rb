@@ -26,10 +26,6 @@
 #
 
 class Person < ActiveRecord::Base
-
-  # remove this - after migrations
-  #has_and_belongs_to_many :images
-
   has_many :addresses, :dependent => :destroy, :order => "preferred desc"
   has_many :email_addresses, :dependent => :destroy, :order => "preferred desc"
   has_many :phone_numbers, :dependent => :destroy, :order => "preferred desc"
@@ -82,6 +78,7 @@ class Person < ActiveRecord::Base
     return now.year - bday.year - (bday.to_time.change(:year => now.year) > now ? 1 : 0) 
   end
   
+  # TODO: what defines person as active?
   def active?
     !activities.empty? && activities.first.finish_date > 1.year.ago
   end

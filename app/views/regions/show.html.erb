@@ -12,13 +12,14 @@
   <table class="standard" cellpadding="0" cellspacing="0">
     <tr>
       <th width="50">&nbsp;</th>
-      <th>member</th>
-      <th>current job</th>
-      <th>last event</th>
+      <th width="150">leader</th>
+      <th width="300">current job</th>
       <th>fellowship(s)</th>
+      <th width="110">last activity</th>
     </tr>
 
-    <%= render :partial => 'layouts/person', :collection => @people %>
+
+    <%= render :partial => 'people/list', :collection => @people %>
 
   </table>
 </div>

@@ -1949,3 +1949,24 @@ table tr.odd
   background-color: #fff;
   color: inherit;
   }
+
+/* Flash Notice and Error */
+
+p.flash
+{
+    width: 30em;
+    margin: 0 8em 0 8em;
+    padding: 0.2em;
+    border: 1px solid;
+    color: #000;
+}
+p.error
+{
+    border-color: #f00;
+    background: #f69;
+}
+p.notice
+{
+    border-color: #0f0;
+    background: #9f6;
+}

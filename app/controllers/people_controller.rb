@@ -2,7 +2,7 @@ class PeopleController < ApplicationController
   
   def index
 
-    @browse_by = (params[:browse_by] if ['name', 'fellowship', 'search'].include?(params[:browse_by])) || 'name'
+    @browse_by = (params[:browse_by] if ['name', 'fellowship', 'activity', 'search'].include?(params[:browse_by])) || 'name'
 
     case @browse_by
     when "name"

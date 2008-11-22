@@ -1,0 +1,31 @@
+<%
+  person ||= list  
+%>
+
+<tr class="<%= cycle('odd', 'even') -%>">
+  <td>
+    <div class="avatarbox">
+      <% if person.avatar != nil %>
+        <%= image_tag(person.avatar.public_filename('medium')) %>
+      <% end %>
+    </div>
+  </td>
+  <td>
+    <%= link_to(person.name, person_url(person.id)) %>
+  </td>
+  <td>
+    <%= person.job_title -%> <br />
+    <% if person.current_job -%>
+      <%= link_to(person.company_name, organization_path(person.current_job.organization)) -%>
+    <% end -%>
+  </td>
+  <td>
+    <% person.fellowships.each do |f| %>
+      <%= f.country || "?" %> - <%= f.year || "?" %> - <%= f.program.abbr %> <br />
+    <% end %>
+  </td>
+  <td>
+    <%= time_ago_in_words(person.updated_at) %> ago <br />
+    <%= person.updated_at.to_date.to_s(:long) %>
+  </td>
+</tr>

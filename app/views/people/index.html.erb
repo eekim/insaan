@@ -4,6 +4,7 @@
 <% content_for :tabnav do %>
   <ul class="tabnav">
     <li <%= "class=\"tabselected\"" if @browse_by == "name" %>><%= link_to('by Name', {:browse_by => 'name'}) %></li>
+    <li <%= "class=\"tabselected\"" if @browse_by == "activity" %>><%= link_to('by Activity', {:browse_by => 'activity'}) %></li>
     <li <%= "class=\"tabselected\"" if @browse_by == "fellowship" %>><%= link_to('by Fellowship', {:browse_by => 'fellowship'}) %></li>
   </ul>
 <% end %>
@@ -12,20 +13,20 @@
   <%= render :partial => 'filter' %>
 <% end %>
 
-<div class="results"><%= will_paginate @people %></div>
+<div class="results"><span class="left"><%= will_paginate @people %></span><span class="right"><%= page_entries_info @people %></span></div>
+<div class="clearfloats"></div>
 <div class="table-border">
   <table class="standard" cellpadding="0" cellspacing="0">
     <tr>
       <th width="50">&nbsp;</th>
-      <th>member</th>
-      <th>current job</th>
-      <th>last event</th>
+      <th width="150">leader</th>
+      <th width="300">current job</th>
       <th>fellowship(s)</th>
+      <th width="110">last activity</th>
     </tr>
 
-    <%= render :partial => 'layouts/person', :collection => @people, :local => @browse_by %>
+    <%= render :partial => 'people/list', :collection => @people, :local => @browse_by %>
 
   </table>
 </div>
 <div class="results"><%= will_paginate @people %></div>
-
