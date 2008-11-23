@@ -29,4 +29,5 @@
 
   </table>
 </div>
-<div class="results"><%= will_paginate @people %></div>
+<div class="results"><span class="left"><%= will_paginate @people %></span><span class="right"><%= page_entries_info @people %></span></div>
+<div class="clearfloats"></div>

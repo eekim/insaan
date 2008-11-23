@@ -7,7 +7,8 @@
   </ul>
 <% end %>
 
-<div class="results"><%= will_paginate @people %></div>
+<div class="results"><span class="left"><%= will_paginate @organizations %></span><span class="right"><%= page_entries_info @organizations %></span></div>
+<div class="clearfloats"></div>
 <div class="table-border">
   <table class="standard" cellpadding="0" cellspacing="0">
     <tr>
@@ -18,10 +19,9 @@
       <th>members</th>
     </tr>
 
-    <%= render :partial => 'organization', :collection => @organizations %>
+    <%= render :partial => 'organizations/list', :collection => @organizations %>
 
   </table>
 </div>
-
-<div class="results"><%= will_paginate @people %></div>
-
+<div class="results"><span class="left"><%= will_paginate @organizations %></span><span class="right"><%= page_entries_info @organizations %></span></div>
+<div class="clearfloats"></div>
