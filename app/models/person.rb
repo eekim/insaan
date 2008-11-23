@@ -55,7 +55,7 @@ class Person < ActiveRecord::Base
 
   # validations
   validates_presence_of :first_name, :last_name
-  validates_length_of :first_name, :last_name, :within => 3..50
+  validates_length_of :first_name, :last_name, :within => 2..50
   
   validates_associated :addresses
   validates_associated :email_addresses
