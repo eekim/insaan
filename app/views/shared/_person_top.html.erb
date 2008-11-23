@@ -5,6 +5,9 @@
   <div class="timestamp">
     Created: <%= @person.created_at.to_date.to_s(:long) %><br />
     Updated: <%= @person.updated_at.to_date.to_s(:long) %><br />
+    <% if @person.is_deceased? -%>
+      <span style="color: #f00; font-weight: bold; text-transform: uppercase;">deceased</span>
+    <% end -%>
     <!-- Status: <%= @person.active? ? 'Active' : 'Inactive' %> -->
   </div><!-- timestamp end -->
 

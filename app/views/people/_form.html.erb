@@ -18,7 +18,7 @@
     </dl>
     
     <h4>Date of Birth</h4>
-    <p><%= f.date_select :bday, :start_year => 1920, :end_year => 18.years.ago.year, :default => {:year => 1920, :day => 1, :month => 1}, :include_blank => true %></p>
+    <p><%= f.date_select :bday, :start_year => 1920, :end_year => 18.years.ago.year, :default => {:year => 1920, :day => 1, :month => 1}, :include_blank => true %> &nbsp; <%= f.check_box :is_deceased %> Deceased? </p>
     
     <h4>Gender</h4>
     <p><%= f.select :gender, [['Female','F'], ['Male','M']], { :include_blank => "select gender" } %></p>

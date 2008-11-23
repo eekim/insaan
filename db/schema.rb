@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081104214819) do
+ActiveRecord::Schema.define(:version => 20081123050952) do
 
   create_table "addresses", :force => true do |t|
     t.integer "person_id",    :limit => 11
@@ -128,11 +128,12 @@ ActiveRecord::Schema.define(:version => 20081104214819) do
     t.integer  "user_id",             :limit => 11
     t.string   "primary_email_cache"
     t.string   "primary_phone_cache"
-    t.integer  "photos_count",        :limit => 11, :default => 0,   :null => false
-    t.integer  "fellowships_count",   :limit => 11, :default => 0,   :null => false
+    t.integer  "photos_count",        :limit => 11, :default => 0,     :null => false
+    t.integer  "fellowships_count",   :limit => 11, :default => 0,     :null => false
     t.integer  "country_id",          :limit => 11
     t.integer  "region_id",           :limit => 11
     t.integer  "affiliation_id",      :limit => 11
+    t.boolean  "is_deceased",                       :default => false
   end
 
   create_table "phone_numbers", :force => true do |t|
